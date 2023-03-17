@@ -1,5 +1,5 @@
 
-/* utility */
+/* ------ utility ----- */
 *{
     margin: 0;
     padding: 0;
@@ -12,8 +12,7 @@ input:focus{
 }
 
 
-/* main code */
-
+/* ----- main code ----- */
 /* macroaree */
 .mega-container{
     width: 100vw;
@@ -321,7 +320,7 @@ input:focus{
     background-color: #f3eeea;
 }
 
-.type-text .emoticons, .message .audio{
+.type-text .emoticons, .type-text .audio{
     width: 10%;
     height: 100%;
     display: flex;
