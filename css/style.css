@@ -8,3 +8,36 @@
 
 
 /* main code */
+
+/* macroaree */
+.mega-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 75%;
+    min-width: 1170px;
+    height: 90%;
+    min-height: 800px;
+    display: flex;
+    background-color: red; 
+}
+
+.container .sx-side{
+    width: 35%;
+    height: 100%;
+    border: 3px solid black;
+}
+
+.container .dx-side{
+    width: 65%;
+    height: 100%;
+    border: 3px solid black;
+}
+
+/* parte sinistra  */
