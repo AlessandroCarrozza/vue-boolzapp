@@ -21,7 +21,7 @@
 
 .container{
     width: 75%;
-    min-width: 1170px;
+    min-width: 970px;
     height: 90%;
     min-height: 800px;
     display: flex;
@@ -41,3 +41,47 @@
 }
 
 /* parte sinistra  */
+.own-profile{
+    width: 100%;
+    height: 60px;
+    background-color: blue;
+}
+
+.notifications{
+    width: 100%;
+    height: 70px;
+    background-color: green;
+}
+
+.chat-finder{
+    width: 100%;
+    height: 50px;
+    background-color: grey;
+}
+
+.chats{
+    width: 100%;
+    height: calc(100% - 60px - 70px - 50px);
+    background-color: blueviolet;
+}
+
+
+
+/* parte destra */
+.user-profile{
+    width: 100%;
+    height: 60px;
+    background-color: orange;
+}
+
+.chat{
+    width: 100%;
+    height: calc(100% - 60px - 60px);
+    background-color: beige;
+}
+
+.message{
+    width: 100%;
+    height: 60px;
+    background-color: hotpink;
+}
