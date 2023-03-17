@@ -59,17 +59,19 @@
 
                 
                     <div class="chats">
-                        <div class="user-chat">
-                            <div class="info-user">
-                                <img src="img/avatar_1.jpg" alt="Photo User">
-                                <div class="user-name">
-                                    <span>Michele</span>
-                                    <span>Ultimo messaggio inviato</span>
-                                </div>
 
+                        <div class="user-chat" v-for="contact in contacts">
+                            <div class="info-user">
+                                <img :src="contact.avatar" :alt="contact.name">               
+                                <div class="user-name">
+                                    <span>{{contact.name}}</span>
+                                    <span class="last-message">Ultimo messaggio inviato</span>
+                                </div>
                             </div>
                             <div class="time-chat">12:00</div>
                         </div>
+
+                        
                     </div>
                 </div>
 
