@@ -26,7 +26,6 @@
     height: 90%;
     min-height: 800px;
     display: flex;
-    /* background-color: red;  */
 }
 
 .container .sx-side{
@@ -157,24 +156,39 @@
 .chats{
     width: 100%;
     height: calc(100% - 60px - 70px - 50px);
-    background-color: blueviolet;
 }
 
 .user-chat{
     width: 100%;
     height: 80px;
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
     background-color: red;
     border: 1px solid black;
+    position: relative;
 }
 
 .user-chat img{
     width: 55px;
     height: 55px;
+    border-radius: 50%;
 }
 
+.info-user{
+    display: flex;
+}
 
+.user-name span{
+    display: block;
+    padding: 0 7px;
+}
 
+.time-chat{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
 
 
 
