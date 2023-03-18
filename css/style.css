@@ -277,7 +277,7 @@ input:focus{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding-left: 1rem;
+    padding: 0 1rem;
     position: relative;
     border-radius: 10px;
 }

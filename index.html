@@ -97,19 +97,23 @@
                     <div class="chat">
                         <div class="container-chat">
 
-                            <div class="sent-message" v-for="mess in contacts[activeChat].messages">
-                                <div class="message">
-                                    <span>{{mess.message}}</span>
-                                    <div class="time-message">{{mess.date}}</div>
-                                    <i class="fa-solid fa-angle-down"></i>
+                            <div v-for="mess in contacts[activeChat].messages">
+                                <div class="sent-message" v-if="mess.status == 'sent' ">
+                                    <div class="message">
+                                        <span>{{mess.message}}</span>
+                                        <div class="time-message">{{mess.date}}</div>
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="received-message" v-for="mess in contacts[activeChat].messages">
-                                <div class="message">
-                                    <span>{{mess.message}}</span>
-                                    <div class="time-message">{{mess.date}}</div>
-                                    <i class="fa-solid fa-angle-down"></i>
+                            <div v-for="mess in contacts[activeChat].messages">
+                                <div class="received-message" v-if="mess.status == 'received' ">
+                                    <div class="message">
+                                        <span>{{mess.message}}</span>
+                                        <div class="time-message">{{mess.date}}</div>
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
