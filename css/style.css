@@ -4,7 +4,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background-image: url("../img/bg-zapp.jpg");
+    background-size: cover;
 }
 
 input:focus{
@@ -17,7 +22,6 @@ input:focus{
 .mega-container{
     width: 100vw;
     height: 100vh;
-    background-color: aquamarine;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +31,7 @@ input:focus{
     width: 75%;
     min-width: 970px;
     height: 90%;
-    min-height: 800px;
+    min-height: 600px;
     display: flex;
 }
 
@@ -154,12 +158,12 @@ input:focus{
 
 
 
-/* chat con gli users */
+/* anteprime chat con contatti */
 .contacts{
     width: 100%;
     height: calc(100% - 60px - 70px - 50px);
     background-color: white;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 .user-contact{
@@ -199,7 +203,7 @@ input:focus{
     top: 10px;
     right: 10px;
     color: #a2a1a2;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .last-message{
@@ -247,6 +251,7 @@ input:focus{
     width: 100%;
     height: calc(100% - 60px - 60px);
     background-image: url("../img/mine.jpg");
+    overflow-y: scroll;
 }
 
 .container-chat{
@@ -292,7 +297,7 @@ input:focus{
     position: absolute;
     bottom: 5px;
     right: 5px;
-    font-size: 14px;
+    font-size: 12px;
     color: #a2a1a2;
 }
 
