@@ -279,25 +279,22 @@ input:focus{
     flex-wrap: wrap;
     padding-left: 1rem;
     position: relative;
+    border-radius: 10px;
 }
 
 .sent-message .message{
     background-color: #d5f9ba;
-    border-radius: 12px;
-    border-bottom-right-radius: 0;
 }
 
 .received-message .message{
     background-color: white;
-    border-radius: 12px;
-    border-bottom-left-radius: 0;
 }
 
 .time-message{
     position: absolute;
-    bottom: 5px;
+    bottom: 1px;
     right: 5px;
-    font-size: 12px;
+    font-size: 11px;
     color: #a2a1a2;
 }
 
@@ -305,7 +302,7 @@ input:focus{
     position: absolute;
     top: 7px;
     right: 12px;
-    color: #5e6567;
+    color: #a2a1a2;
     cursor: pointer;
     display: none;
 }

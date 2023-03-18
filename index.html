@@ -96,26 +96,19 @@
 
                     <div class="chat">
                         <div class="container-chat">
-                            <div class="sent-message">
+
+                            <div class="sent-message" v-for="mess in contacts[activeChat].messages">
                                 <div class="message">
-                                    <span>testo testo</span>
-                                    <div class="time-message">12:00</div>
+                                    <span>{{mess.message}}</span>
+                                    <div class="time-message">{{mess.date}}</div>
                                     <i class="fa-solid fa-angle-down"></i>
                                 </div>
                             </div>
 
-                            <div class="received-message">
+                            <div class="received-message" v-for="mess in contacts[activeChat].messages">
                                 <div class="message">
-                                    <span>testo ricevuto</span>
-                                    <div class="time-message">12:00</div>
-                                    <i class="fa-solid fa-angle-down"></i>
-                                </div>
-                            </div>
-
-                            <div class="received-message">
-                                <div class="message">
-                                    <span>testo ricevuto</span>
-                                    <div class="time-message">12:00</div>
+                                    <span>{{mess.message}}</span>
+                                    <div class="time-message">{{mess.date}}</div>
                                     <i class="fa-solid fa-angle-down"></i>
                                 </div>
                             </div>
