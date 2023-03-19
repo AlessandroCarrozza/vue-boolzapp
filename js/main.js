@@ -6,6 +6,8 @@ createApp({
       activeChat: 0,
       ownMessage: "",
       visiblePanel: false,
+      dateMessage: luxon.DateTime.now().toLocaleString(),
+      timeMessage: luxon.DateTime.now().toFormat('HH:mm:ss'),
       contacts: [
         {
           name: 'Michele',
@@ -178,7 +180,7 @@ createApp({
     sendTheMessage () {
       if (this.ownMessage.length > 0) {
         (this.contacts[this.activeChat].messages).push({
-          date: "in working",
+          date: `${this.dateMessage} ${this.timeMessage}`,
           message: this.ownMessage,
           status: 'sent'
         });
