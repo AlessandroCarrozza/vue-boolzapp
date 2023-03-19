@@ -97,7 +97,7 @@
                     <div class="chat">
                         <div class="container-chat">
 
-                            <div v-for="mess in contacts[activeChat].messages">
+                            <div v-for="(mess, index) in contacts[activeChat].messages">
                                 <div :class="(mess.status == 'sent')? 'sent-message' : 'received-message'">
                                     <div class="message" @mouseleave="visiblePanel = false">
                                         <span>{{mess.message}}</span>
@@ -105,7 +105,7 @@
                                         <i class="fa-solid fa-angle-down" @click="visiblePanel = !visiblePanel">
                                             <div class="panel" v-show="visiblePanel">
                                                 <div class="info-message">Info Messaggio</div>
-                                                <div class="delete-message">Elimina Messaggio</div>
+                                                <div class="delete-message" @click="removeMessage(index)">Elimina Messaggio</div>
                                             </div>
                                         </i>
                                     </div>

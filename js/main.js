@@ -185,6 +185,9 @@ createApp({
         this.ownMessage = "";
       }
     },
+    removeMessage (index) {
+      (this.contacts[this.activeChat].messages).splice(index, 1);
+    }
     // receiveTheMessage () {
     //   if ((this.contacts[this.activeChat].messages).length++) {
     //     (this.contacts[this.activeChat].messages).push({
