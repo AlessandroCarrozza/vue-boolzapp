@@ -277,7 +277,7 @@ input:focus{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding: 0 1rem;
+    padding: 0 1.6rem 0 1rem;
     position: relative;
     border-radius: 10px;
 }
@@ -301,7 +301,7 @@ input:focus{
 .message i{
     position: absolute;
     top: 7px;
-    right: 12px;
+    right: 10px;
     color: #a2a1a2;
     cursor: pointer;
     display: none;
@@ -310,6 +310,34 @@ input:focus{
 .message:hover i{
     display: block;
 }
+
+.panel{
+    width: 150px;
+    height: 100px;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.panel div{
+    width: 100%;
+    height: 50%;
+    color: #5e6567;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.panel div:hover{
+    background-color: #e9ebeb;
+}
+
 
 
 

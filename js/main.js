@@ -4,6 +4,8 @@ createApp({
   data() {
     return {
       activeChat: 0,
+      ownMessage: "",
+      visiblePanel: false,
       contacts: [
         {
           name: 'Michele',
@@ -165,25 +167,35 @@ createApp({
               status: 'received'
             }
           ],
-        }
-      ]
+        },
+      ],
     }
   },
   methods: {
     clickOn(index) {
       this.activeChat = index;
     },
-    isSent () {
-      if (this.contacts[this.activeChat].status == "sent") {
-        return true;
+    sendTheMessage () {
+      if (this.ownMessage.length > 0) {
+        (this.contacts[this.activeChat].messages).push({
+          date: "in working",
+          message: this.ownMessage,
+          status: 'sent'
+        });
+        this.ownMessage = "";
       }
-      this.currentMess++;
     },
-    isReceived () {
-      if (this.contacts[this.activeChat].status == "received") {
-        return true;
-      }
-      this.currentMess++;
-    }
-  }
+    // receiveTheMessage () {
+    //   if ((this.contacts[this.activeChat].messages).length++) {
+    //     (this.contacts[this.activeChat].messages).push({
+    //       date: "in working",
+    //       message: "ok",
+    //       status: 'received'
+    //     });
+    //   }
+    // },
+    // secMessge () {
+    //   setTimeout(this.receiveTheMessage(), 1000)
+    // }
+  },
 }).mount('#app')

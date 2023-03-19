@@ -99,14 +99,19 @@
 
                             <div v-for="mess in contacts[activeChat].messages">
                                 <div :class="(mess.status == 'sent')? 'sent-message' : 'received-message'">
-                                    <div class="message">
+                                    <div class="message" @mouseleave="visiblePanel = false">
                                         <span>{{mess.message}}</span>
                                         <div class="time-message">{{mess.date}}</div>
-                                        <i class="fa-solid fa-angle-down"></i>
+                                        <i class="fa-solid fa-angle-down" @click="visiblePanel = !visiblePanel">
+                                            <div class="panel" v-show="visiblePanel">
+                                                <div class="info-message">Info Messaggio</div>
+                                                <div class="delete-message">Elimina Messaggio</div>
+                                            </div>
+                                        </i>
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -117,7 +122,7 @@
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
 
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="ownMessage" @keyup.enter="sendTheMessage">
 
                         <div class="audio">
                             <i class="fa-solid fa-microphone"></i>
