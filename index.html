@@ -98,7 +98,7 @@
                         <div class="container-chat">
 
                             <div v-for="mess in contacts[activeChat].messages">
-                                <div class="sent-message" v-if="mess.status == 'sent' ">
+                                <div :class="(mess.status == 'sent')? 'sent-message' : 'received-message'">
                                     <div class="message">
                                         <span>{{mess.message}}</span>
                                         <div class="time-message">{{mess.date}}</div>
@@ -106,16 +106,7 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div v-for="mess in contacts[activeChat].messages">
-                                <div class="received-message" v-if="mess.status == 'received' ">
-                                    <div class="message">
-                                        <span>{{mess.message}}</span>
-                                        <div class="time-message">{{mess.date}}</div>
-                                        <i class="fa-solid fa-angle-down"></i>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
 
