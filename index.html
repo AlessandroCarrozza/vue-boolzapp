@@ -63,13 +63,11 @@
                                 <img :src="contact.avatar" :alt="contact.name">               
                                 <div class="user-name">
                                     <span>{{contact.name}}</span>
-                                    <span class="last-message">12:00</span>
+                                    <span class="last-message">{{contact.messages[contact.messages.length - 1].message}}</span>
                                 </div>
                             </div>
-                            <div class="time-chat">12:00</div>
+                            <div class="time-chat">{{contact.messages[contact.messages.length - 1].date}}</div>
                         </div>
-
-                        <!-- {{contact.messages[messages.length - 1].message}} -->
 
                         
                     </div>
@@ -84,7 +82,7 @@
                             <img :src="contacts[activeChat].avatar" alt="Your Photo">
                             <div class="user-name">
                                 <span>{{contacts[activeChat].name}}</span>
-                                <span class="last-message">Ultimo accesso oggi alle 12:00</span>
+                                <span class="last-message">Ultimo accesso {{contacts[activeChat].messages[contacts[activeChat].messages.length - 1].date}}</span>
                             </div>
                         </div>
                         <div class="icons">

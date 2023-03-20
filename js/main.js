@@ -191,7 +191,7 @@ createApp({
           date: `${this.dateMessage} ${this.timeMessage}`,
           message: this.ownMessage,
           status: 'sent'
-    });
+        });
         this.ownMessage = "";
 
         setTimeout(() => {
