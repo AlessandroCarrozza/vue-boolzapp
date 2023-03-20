@@ -177,30 +177,29 @@ createApp({
     clickOn(index) {
       this.activeChat = index;
     },
+    receiveTheMessage () {
+      (this.contacts[this.activeChat].messages).push({
+        date: `${this.dateMessage} ${this.timeMessage}`,
+        message: "ok",
+        status: 'received'
+      });
+    },
     sendTheMessage () {
-      if (this.ownMessage.length > 0) {
+      if (this.ownMessage.trim().length > 0) {
         (this.contacts[this.activeChat].messages).push({
           date: `${this.dateMessage} ${this.timeMessage}`,
           message: this.ownMessage,
           status: 'sent'
-        });
+    });
         this.ownMessage = "";
+
+        setTimeout(() => {
+          this.receiveTheMessage()
+        }, 1000);
       }
     },
     removeMessage (index) {
       (this.contacts[this.activeChat].messages).splice(index, 1);
-    }
-    // receiveTheMessage () {
-    //   if ((this.contacts[this.activeChat].messages).length++) {
-    //     (this.contacts[this.activeChat].messages).push({
-    //       date: "in working",
-    //       message: "ok",
-    //       status: 'received'
-    //     });
-    //   }
-    // },
-    // secMessge () {
-    //   setTimeout(this.receiveTheMessage(), 1000)
-    // }
+    },
   },
 }).mount('#app')
