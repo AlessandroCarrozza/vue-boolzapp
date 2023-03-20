@@ -199,10 +199,6 @@ createApp({
         }, 1000);
       }
     },
-    // finderContact () {
-    //   this.findContact.charAt(0).toUpperCase() + stringa.slice(1);
-    //   return this.findContact
-    // },
     removeMessage (index) {
       (this.contacts[this.activeChat].messages).splice(index, 1);
     },
