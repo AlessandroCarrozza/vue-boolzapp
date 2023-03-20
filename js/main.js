@@ -198,7 +198,6 @@ createApp({
         });
         this.ownMessage = "";
 
-
         setTimeout(() => {
           this.receiveTheMessage()
         }, 1000);
