@@ -125,7 +125,10 @@
                         <input type="text" placeholder="Scrivi un messaggio" v-model="ownMessage" @keyup.enter="sendTheMessage">
 
                         <div class="audio">
-                            <i class="fa-solid fa-microphone"></i>
+                            <i v-if="ownMessage.length == 0" class="fa-solid fa-microphone"></i>
+                            <div v-else class="plane-mess" @click="sendTheMessage">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </div>
                         </div>
                     </div>
                 </div>

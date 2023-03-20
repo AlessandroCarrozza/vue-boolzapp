@@ -372,3 +372,19 @@ input:focus{
     font-size: 1.4rem;
     color: #5e6567;
 }
+
+.plane-mess{
+    width: 40px;
+    height: 40px;
+    background-color: #007bff;
+    padding: 7px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.plane-mess .fa-paper-plane{
+    color: white;
+    position: absolute;
+    top: 25%;
+}
