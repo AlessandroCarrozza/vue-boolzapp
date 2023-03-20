@@ -9,6 +9,7 @@ createApp({
       dateMessage: luxon.DateTime.now().toLocaleString(),
       timeMessage: luxon.DateTime.now().toFormat('HH:mm:ss'),
       findContact: "",
+      someAnswers: ["ok", "va bene", "certo", "d'accordo", "benissimo", "arrivederci"],
       contacts: [
         {
           name: 'Michele',
@@ -179,9 +180,11 @@ createApp({
       this.activeChat = index;
     },
     receiveTheMessage () {
+      this.dateMessage = luxon.DateTime.now().toLocaleString();
+      this.timeMessage = luxon.DateTime.now().toFormat('HH:mm:ss');
       (this.contacts[this.activeChat].messages).push({
         date: `${this.dateMessage} ${this.timeMessage}`,
-        message: "ok",
+        message: this.someAnswers[this.generateRandomNumber(0, this.someAnswers.length - 1)],
         status: 'received'
       });
     },
@@ -194,13 +197,26 @@ createApp({
         });
         this.ownMessage = "";
 
+
         setTimeout(() => {
           this.receiveTheMessage()
         }, 1000);
+
+        this.autoScroll();
       }
     },
     removeMessage (index) {
       (this.contacts[this.activeChat].messages).splice(index, 1);
     },
+    generateRandomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
+    autoScroll () {
+      const chatDom = document.querySelector(".chat");
+      chatDom.scrollTop = chatDom.scrollHeight;
+    }
   },
+  updated () {
+    this.autoScroll();
+  }
 }).mount('#app')
