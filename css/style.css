@@ -1,5 +1,5 @@
 
-/* ------ utility ----- */
+/* ------ default ----- */
 *{
     margin: 0;
     padding: 0;
@@ -7,6 +7,7 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+/* ******************** UTILITY ******************** */
 body{
     background-image: url("../img/bg-zapp.jpg");
     background-size: cover;
@@ -16,15 +17,67 @@ input:focus{
     outline: none;
 }
 
+.bg-white{
+    background-color: white;
+}
 
-/* ----- main code ----- */
+.bg-white-light{
+    background-color: #fafafa;
+}
+
+.bg-white-light2{
+    background-color: #eaeaea;
+}
+
+.bg-white-light3{
+    background-color: #f3eeea;
+}
+
+.bg-dark{
+    background-color: #292929;
+}
+
+.col-white{
+    color: white;
+}
+
+.col-black{
+    color: #121212;
+}
+
+.border-black{
+    border-top: 1px solid #5e6567;
+}
+
+.bg-dark-chat{
+    background-image: url("../img/bg-dark.webp");
+}
+
+.bg-light-chat{
+    background-image: url("../img/mine.jpg");
+}
+
+.d-flex{
+    display: flex;
+}
+
+.jus-center{
+    justify-content: center;
+}
+
+.ali-center{
+    align-items: center;
+}
+
+.jus-between{
+    justify-content: space-between;
+}
+
+/* ******************** MAIN CODE ******************** */
 /* macroaree */
 .mega-container{
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .container{
@@ -32,63 +85,50 @@ input:focus{
     min-width: 970px;
     height: 90%;
     min-height: 600px;
-    display: flex;
 }
 
-.container .sx-side{
+#sx-side{
     width: 35%;
     height: 100%;
 }
 
-.container .dx-side{
+#dx-side{
     width: 65%;
     height: 100%;
     border-left: 1px solid lightgrey;
 }
 
 
-/* ---------------------- parte sinistra ------------------------  */
-
+/* ------------- parte sinistra -------------  */
 /* profilo personale */
-.own-profile{
+#own-profile{
     width: 100%;
     height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #eaeaea;
 }
 
-.own-profile img{
+#own-profile img{
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin: 0 10px;
 }
 
-.own-photo-name{
-    display: flex;
-    align-items: center;
-}
-
-.own-profile i {
+#own-profile i {
     padding: 10px;
     font-size: 1.2rem;
     color: #a2a1a2;
 }
 
-.own-profile .icons {
+#own-profile .icons {
     padding-right: 10px;
 }
 
 
 
 /* ricevi notifiche */
-.notifications{
+#notifications{
     width: 100%;
     height: 70px;
-    display: flex;
-    align-items: center;
     background-color: #8edafc;
 }
 
@@ -96,10 +136,6 @@ input:focus{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0 7px 0 12px;
 }
 
@@ -119,36 +155,28 @@ input:focus{
 
 
 /* cerca una chat */
-.chat-finder{
+#chat-finder{
     width: 100%;
     height: 50px;
-    background-color: #fafafa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.chat-finder .input-text{
+#chat-finder .input-text{
     width: 97%;
     height: 75%;
-    display: flex;
 }
 
-.chat-finder .lens{
+#chat-finder .lens{
     width: 80px;
     display: inline-block;
-    background-color: white;
     border: 1px solid #eaeaea;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.chat-finder .lens i{
+#chat-finder .lens i{
     color: #a2a1a2;
 }
 
-.chat-finder input{
+#chat-finder input{
     width: calc(100% - 50px);
     border: 1px solid #eaeaea;
     border-left: none;
@@ -157,29 +185,25 @@ input:focus{
 
 
 
-
 /* anteprime chat con contatti */
-.contacts{
+#contacts{
     width: 100%;
     height: calc(100% - 60px - 70px - 50px);
-    background-color: white;
     overflow-y: scroll;
 }
 
 .user-contact{
     width: 100%;
     height: 80px;
-    display: flex;
     justify-content: flex-start;
-    align-items: center;
-    border-top: 1px solid #eaeaea;
     position: relative;
-    background-color: white;
     cursor: pointer;
+    border-top: 1px solid #eaeaea;
 }
 
 .user-contact:hover{
     background-color: #e9ebeb;
+    color: black;
 }
 
 .user-contact img{
@@ -189,7 +213,6 @@ input:focus{
 }
 
 .info-user{
-    display: flex;
     padding-left: 1rem;
 }
 
@@ -213,23 +236,12 @@ input:focus{
 
 
 
-
-
-/* ---------------------------- parte destra ---------------------------- */
-
+/* ------------- parte destra -------------  */
 /* profilo utente */
-.user-profile{
+#user-profile{
     width: 100%;
     height: 60px;
-    background-color: #eaeaea;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 0 10px;
-}
-
-.user-photo-name{
-    display: flex;
 }
 
 .user-photo-name img{
@@ -238,10 +250,37 @@ input:focus{
     border-radius: 50%;
 }
 
-.user-profile i{
+#user-profile i{
     color: #a2a1a2;
     font-size: 1.2rem;
     padding: 10px;
+}
+
+.light-dark{
+    display: inline-block;
+    border-top: 1px solid #a2a1a2;
+    border-bottom: 1px solid #a2a1a2;
+    margin-right: 10px;
+}
+
+
+.light-dark div{
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.light-dark .light-mode{
+    border-right: 1px solid #a2a1a2;
+}
+
+.dark-mode{
+    border-right: 1px solid #a2a1a2;
+}
+
+.light-mode{
+    border-left: 1px solid #a2a1a2;
 }
 
 
@@ -250,7 +289,6 @@ input:focus{
 .chat{
     width: 100%;
     height: calc(100% - 60px - 60px);
-    background-image: url("../img/mine.jpg");
     overflow-y: scroll;
 }
 
@@ -274,8 +312,6 @@ input:focus{
 .chat .message{
     width: 35%;
     height: 100%;
-    display: flex;
-    align-items: center;
     flex-wrap: wrap;
     padding: 0 1.6rem 0 1rem;
     position: relative;
@@ -287,10 +323,6 @@ input:focus{
 
 .sent-message .message{
     background-color: #d5f9ba;
-}
-
-.received-message .message{
-    background-color: white;
 }
 
 .time-message{
@@ -317,7 +349,6 @@ input:focus{
 .panel{
     width: 150px;
     height: 100px;
-    background-color: white;
     position: absolute;
     right: 0;
     z-index: 2;
@@ -331,9 +362,6 @@ input:focus{
     font-weight: 600;
     font-size: 14px;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 10px;
 }
 
@@ -342,33 +370,25 @@ input:focus{
 }
 
 
-
-
 /* scrittura del messaggio */
-.type-text{
+#type-text{
     width: 100%;
     height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #f3eeea;
 }
 
-.type-text .emoticons, .type-text .audio{
+#type-text .emoticons, #type-text .audio{
     width: 10%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.type-text input{
+#type-text input{
     width: 80%;
     height: 75%;
     border: none;
     padding-left: 1rem;
 }
 
-.type-text i{
+#type-text i{
     font-size: 1.4rem;
     color: #5e6567;
 }
@@ -383,8 +403,8 @@ input:focus{
     position: relative;
 }
 
-.plane-mess .fa-paper-plane{
-    color: white;
+#type-text .fa-paper-plane{
     position: absolute;
     top: 25%;
+    color: white;
 }

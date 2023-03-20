@@ -17,14 +17,14 @@
 
     <div id="app">
 
-        <div class="mega-container">
+        <div class="mega-container d-flex jus-center ali-center">
             
-            <div class="container">
+            <div class="container d-flex">
 
                 <!-- parte sinistra -->
-                <div class="sx-side">
-                    <div class="own-profile">
-                        <div class="own-photo-name">
+                <div id="sx-side">
+                    <div id="own-profile" class="d-flex ali-center jus-between" :class="(themeMode)? 'bg-white-light2' : 'bg-dark col-white' ">
+                        <div class="own-photo-name d-flex ali-center">
                             <img src="img/avatar_io.jpg" alt="Your Photo">
                             <span>Alessandro</span>
                         </div>
@@ -36,8 +36,8 @@
                     </div>
 
 
-                    <div class="notifications">
-                        <div class="bell">
+                    <div id="notifications" class="d-flex ali-center">
+                        <div class="bell d-flex jus-center ali-center bg-white">
                             <i class="fa-solid fa-bell-slash"></i>
                         </div>
                         <div class="get-notifications">
@@ -47,9 +47,9 @@
                     </div>
 
 
-                    <div class="chat-finder">
-                        <div class="input-text">
-                            <span class="lens">
+                    <div id="chat-finder" class="d-flex jus-center ali-center" :class="(themeMode)? 'bg-white-light' : 'bg-dark' ">
+                        <div class="input-text d-flex">
+                            <span class="lens jus-center ali-center bg-white">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </span>
                             <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="findContact">
@@ -57,9 +57,9 @@
                     </div>
 
                 
-                    <div class="contacts">
-                        <div class="user-contact" v-for="(contact, index) in contacts" @click="clickOn(index)" v-show="(contact.name.toLowerCase()).startsWith(findContact.toLowerCase())">
-                            <div class="info-user">
+                    <div id="contacts" :class="(themeMode)? 'bg-white-light' : 'bg-dark' ">
+                        <div class="user-contact d-flex ali-center" v-for="(contact, index) in contacts" @click="clickOn(index)" v-show="(contact.name.toLowerCase()).startsWith(findContact.toLowerCase())" :class="(themeMode)? 'bg-white-light' : 'bg-dark col-white' ">
+                            <div class="info-user d-flex">
                                 <img :src="contact.avatar" :alt="contact.name">               
                                 <div class="user-name">
                                     <span>{{contact.name}}</span>
@@ -68,17 +68,17 @@
                             </div>
                             <div class="time-chat">{{contact.messages[contact.messages.length - 1].date}}</div>
                         </div>
-
-                        
+                    
                     </div>
                 </div>
 
 
 
                 <!-- parte destra -->
-                <div class="dx-side">
-                    <div class="user-profile">
-                        <div class="user-photo-name">
+                <div id="dx-side">
+
+                    <div id="user-profile" class="d-flex jus-between ali-center" :class="(themeMode)? 'bg-white-light2' : 'bg-dark col-white' ">
+                        <div class="user-photo-name d-flex">
                             <img :src="contacts[activeChat].avatar" alt="Your Photo">
                             <div class="user-name">
                                 <span>{{contacts[activeChat].name}}</span>
@@ -86,6 +86,14 @@
                             </div>
                         </div>
                         <div class="icons">
+                            <div class="light-dark">
+                                <div class="light-mode" :class="(themeMode)? 'bg-white' : '' " @click="changeThemeLight">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                </div>
+                                <div class="dark-mode" :class="(!themeMode)? 'bg-white' : '' " @click="changeThemeDark">
+                                    <i class="fa-solid fa-moon"></i>
+                                </div>
+                            </div>
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -94,18 +102,18 @@
 
 
 
-                    <div class="chat">
+                    <div class="chat" :class="(themeMode)? 'bg-light-chat' : 'bg-dark-chat' ">
                         <div class="container-chat">
 
                             <div v-for="(mess, index) in contacts[activeChat].messages">
                                 <div :class="(mess.status == 'sent')? 'sent-message' : 'received-message'">
-                                    <div class="message" @mouseleave="visiblePanel = false">
+                                    <div class="message d-flex ali-center bg-white" @mouseleave="visiblePanel = false">
                                         <span>{{mess.message}}</span>
                                         <div class="time-message">{{mess.date}}</div>
                                         <i class="fa-solid fa-angle-down" @click="visiblePanel = !visiblePanel">
-                                            <div class="panel" v-show="visiblePanel">
-                                                <div class="info-message">Info Messaggio</div>
-                                                <div class="delete-message" @click="removeMessage(index)">Elimina Messaggio</div>
+                                            <div class="panel bg-white" v-show="visiblePanel">
+                                                <div class="info-message d-flex jus-center ali-center">Info Messaggio</div>
+                                                <div class="delete-message d-flex jus-center ali-center" @click="removeMessage(index)">Elimina Messaggio</div>
                                             </div>
                                         </i>
                                     </div>
@@ -117,14 +125,14 @@
 
 
 
-                    <div class="type-text">
-                        <div class="emoticons">
+                    <div id="type-text" class="d-flex ali-center" :class="(themeMode)? 'bg-white-light3' : 'bg-dark col-white' ">
+                        <div class="emoticons d-flex ali-center jus-center">
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
 
                         <input type="text" placeholder="Scrivi un messaggio" v-model="ownMessage" @keyup.enter="sendTheMessage">
 
-                        <div class="audio">
+                        <div class="audio d-flex ali-center jus-center">
                             <i v-if="ownMessage.length == 0" class="fa-solid fa-microphone"></i>
                             <div v-else class="plane-mess" @click="sendTheMessage">
                                 <i class="fa-solid fa-paper-plane"></i>

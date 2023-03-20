@@ -9,6 +9,7 @@ createApp({
       dateMessage: luxon.DateTime.now().toLocaleString(),
       timeMessage: luxon.DateTime.now().toFormat('HH:mm:ss'),
       findContact: "",
+      themeMode: true,
       someAnswers: ["ok", "va bene", "certo", "d'accordo", "benissimo", "arrivederci"],
       contacts: [
         {
@@ -214,6 +215,12 @@ createApp({
     autoScroll () {
       const chatDom = document.querySelector(".chat");
       chatDom.scrollTop = chatDom.scrollHeight;
+    },
+    changeThemeLight () {
+      this.themeMode = true;
+    },
+    changeThemeDark () {
+      this.themeMode = false;
     }
   },
   updated () {
