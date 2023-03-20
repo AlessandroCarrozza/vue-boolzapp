@@ -52,13 +52,13 @@
                             <span class="lens">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </span>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="findContact">
                         </div>
                     </div>
 
                 
                     <div class="contacts">
-                        <div class="user-contact" v-for="(contact, index) in contacts" @click="clickOn(index)">
+                        <div class="user-contact" v-for="(contact, index) in contacts" @click="clickOn(index)" v-show="(contact.name).startsWith(findContact)">
                             <div class="info-user">
                                 <img :src="contact.avatar" :alt="contact.name">               
                                 <div class="user-name">

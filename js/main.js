@@ -8,6 +8,7 @@ createApp({
       visiblePanel: false,
       dateMessage: luxon.DateTime.now().toLocaleString(),
       timeMessage: luxon.DateTime.now().toFormat('HH:mm:ss'),
+      findContact: "",
       contacts: [
         {
           name: 'Michele',
@@ -198,6 +199,10 @@ createApp({
         }, 1000);
       }
     },
+    // finderContact () {
+    //   this.findContact.charAt(0).toUpperCase() + stringa.slice(1);
+    //   return this.findContact
+    // },
     removeMessage (index) {
       (this.contacts[this.activeChat].messages).splice(index, 1);
     },
