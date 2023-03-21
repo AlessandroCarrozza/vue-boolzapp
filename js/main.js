@@ -3,11 +3,9 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
-      activeChat: 0,
+      activeChat: -1,
       ownMessage: "",
       visiblePanel: false,
-      dateMessage: luxon.DateTime.now().toLocaleString(),
-      timeMessage: luxon.DateTime.now().toFormat('HH:mm:ss'),
       findContact: "",
       themeMode: true,
       someAnswers: ["ok", "va bene", "certo", "d'accordo", "benissimo", "arrivederci"],
@@ -181,10 +179,8 @@ createApp({
       this.activeChat = index;
     },
     receiveTheMessage () {
-      this.dateMessage = luxon.DateTime.now().toLocaleString();
-      this.timeMessage = luxon.DateTime.now().toFormat('HH:mm:ss');
       (this.contacts[this.activeChat].messages).push({
-        date: `${this.dateMessage} ${this.timeMessage}`,
+        date: luxon.DateTime.now().toFormat("dd/MM/yyyy") + " " + luxon.DateTime.now().toFormat('HH:mm:ss'),
         message: this.someAnswers[this.generateRandomNumber(0, this.someAnswers.length - 1)],
         status: 'received'
       });
@@ -192,7 +188,7 @@ createApp({
     sendTheMessage () {
       if (this.ownMessage.trim().length > 0) {
         (this.contacts[this.activeChat].messages).push({
-          date: `${this.dateMessage} ${this.timeMessage}`,
+          date: luxon.DateTime.now().toFormat("dd/MM/yyyy") + " " + luxon.DateTime.now().toFormat('HH:mm:ss'),
           message: this.ownMessage,
           status: 'sent'
         });
@@ -205,21 +201,31 @@ createApp({
         this.autoScroll();
       }
     },
+    finderContact (contact) {
+      if ((contact.name.toLowerCase()).startsWith(this.findContact.toLowerCase())) {
+        return true;
+      }
+    },
     removeMessage (index) {
-      (this.contacts[this.activeChat].messages).splice(index, 1);
+        (this.contacts[this.activeChat].messages).splice(index, 1);
     },
     generateRandomNumber(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     },
     autoScroll () {
-      const chatDom = document.querySelector(".chat");
-      chatDom.scrollTop = chatDom.scrollHeight;
+      if (this.activeChat > -1) {
+        const chatDom = document.querySelector(".chat");
+        chatDom.scrollTop = chatDom.scrollHeight;
+      }
     },
     changeThemeLight () {
       this.themeMode = true;
     },
     changeThemeDark () {
       this.themeMode = false;
+    },
+    backToStart () {
+      this.activeChat = -1;
     }
   },
   updated () {

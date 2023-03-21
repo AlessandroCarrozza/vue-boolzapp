@@ -20,8 +20,10 @@
         <div class="mega-container d-flex jus-center ali-center">         
             <div class="container d-flex">
 
-                <!-- parte sinistra -->
+                <!-------- parte sinistra ------->
                 <div id="sx-side">
+
+                    <!-- profilo personale -->
                     <div id="own-profile" class="d-flex ali-center jus-between" :class="(themeMode)? 'bg-white-light2' : 'bg-dark col-white' ">
                         <div class="own-photo-name d-flex ali-center">
                             <img src="img/avatar_io.jpg" alt="Your Photo">
@@ -35,6 +37,7 @@
                     </div>
 
 
+                    <!-- ricevi notifiche -->
                     <div id="notifications" class="d-flex ali-center">
                         <div class="bell d-flex jus-center ali-center bg-white">
                             <i class="fa-solid fa-bell-slash"></i>
@@ -45,7 +48,8 @@
                         </div>
                     </div>
 
-
+                    
+                    <!-- ricerca contatti -->
                     <div id="chat-finder" class="d-flex jus-center ali-center" :class="(themeMode)? 'bg-white-light' : 'bg-dark' ">
                         <div class="input-text d-flex">
                             <span class="lens jus-center ali-center bg-white">
@@ -55,9 +59,10 @@
                         </div>
                     </div>
 
-                
-                    <div id="contacts" :class="(themeMode)? 'bg-white-light' : 'bg-dark' ">
-                        <div class="user-contact d-flex ali-center" v-for="(contact, index) in contacts" @click="clickOn(index)" v-show="(contact.name.toLowerCase()).startsWith(findContact.toLowerCase())" :class="(themeMode)? 'bg-white-light' : 'bg-dark col-white' ">
+                    
+                    <!-- contatti disponibili -->
+                    <ul id="contacts" :class="(themeMode)? 'bg-white-light' : 'bg-dark' ">
+                        <li class="user-contact d-flex ali-center" v-for="(contact, index) in contacts" @click="clickOn(index)" v-show="finderContact(contact)" :class="(themeMode)? 'bg-white-light' : 'bg-dark col-white border-top-dark' ">
                             <div class="info-user d-flex">
                                 <img :src="contact.avatar" :alt="contact.name">               
                                 <div class="user-name">
@@ -66,16 +71,17 @@
                                 </div>
                             </div>
                             <div class="time-chat">{{contact.messages[contact.messages.length - 1].date}}</div>
-                        </div>
+                        </li>
                     
-                    </div>
+                    </ul>
                 </div>
 
 
 
-                <!-- parte destra -->
-                <div id="dx-side">
+                <!-------- parte destra ------->
+                <div v-if="activeChat != -1" id="dx-side">
 
+                    <!-- profilo interlocutore -->
                     <div id="user-profile" class="d-flex jus-between ali-center" :class="(themeMode)? 'bg-white-light2' : 'bg-dark col-white' ">
                         <div class="user-photo-name d-flex">
                             <img :src="contacts[activeChat].avatar" alt="Your Photo">
@@ -85,9 +91,10 @@
                             </div>
                         </div>
                         <div class="icons">
+                            <i class="fa-solid fa-house" @click="backToStart"></i>
                             <div class="light-dark">
                                 <div class="light-mode" :class="(themeMode)? 'bg-white' : '' " @click="changeThemeLight">
-                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <i class="fa-solid fa-sun"></i>
                                 </div>
                                 <div class="dark-mode" :class="(!themeMode)? 'bg-white' : '' " @click="changeThemeDark">
                                     <i class="fa-solid fa-moon"></i>
@@ -100,7 +107,7 @@
                     </div>
 
 
-
+                    <!-- chat principale -->
                     <div class="chat" :class="(themeMode)? 'bg-light-chat' : 'bg-dark-chat' ">
                         <div class="container-chat">
 
@@ -123,8 +130,8 @@
                     </div>
 
 
-
-                    <div id="type-text" class="d-flex ali-center" :class="(themeMode)? 'bg-white-light3' : 'bg-dark col-white' ">
+                    <!-- scrivi messaggio -->
+                    <div id="type-mess" class="d-flex ali-center" :class="(themeMode)? 'bg-white-light3' : 'bg-dark col-white' ">
                         <div class="emoticons d-flex ali-center jus-center">
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
@@ -137,6 +144,23 @@
                                 <i class="fa-solid fa-paper-plane"></i>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div v-else id="dx-side" class="start">
+                    <div id="user-profile" class="start d-flex jus-center ali-center" :class="(themeMode)? 'bg-white-light2' : 'bg-dark col-white' ">
+                        <div class="light-dark">
+                            <div class="light-mode" :class="(themeMode)? 'bg-white' : '' " @click="changeThemeLight">
+                                <i class="fa-solid fa-sun"></i>
+                            </div>
+                            <div class="dark-mode" :class="(!themeMode)? 'bg-white' : '' " @click="changeThemeDark">
+                                <i class="fa-solid fa-moon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title-start col-white">
+                        <h1>Seleziona una chat dai tuoi contatti</h1>
+                        <i class="fa-solid fa-arrow-left-long fa-beat fa-2xl"></i>
                     </div>
                 </div>
 

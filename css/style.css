@@ -13,6 +13,12 @@ body{
     background-size: cover;
 }
 
+:root{
+    --primary-color: #a2a1a2;
+    --secondary-color: #eaeaea;
+    --dark-theme-color: #202124;
+}
+
 input:focus{
     outline: none;
 }
@@ -26,7 +32,7 @@ input:focus{
 }
 
 .bg-white-light2{
-    background-color: #eaeaea;
+    background-color: var(--secondary-color);
 }
 
 .bg-white-light3{
@@ -34,7 +40,7 @@ input:focus{
 }
 
 .bg-dark{
-    background-color: #292929;
+    background-color: var(--dark-theme-color);
 }
 
 .col-white{
@@ -42,10 +48,18 @@ input:focus{
 }
 
 .col-black{
-    color: #121212;
+    color: var(--dark-theme-color);
 }
 
 .border-black{
+    border-top: 1px solid #5e6567;
+}
+
+.border-top-light{
+    border-top: 1px solid var(--secondary-color);
+}
+
+.border-top-dark{
     border-top: 1px solid #5e6567;
 }
 
@@ -98,6 +112,21 @@ input:focus{
     border-left: 1px solid lightgrey;
 }
 
+#dx-side.start{
+    background-image: url("../img/bg-start.jpg");
+}
+
+#dx-side.start .title-start{
+    text-align: center;
+    font-size: 2rem;
+    padding: 12rem 3rem 0;
+    text-shadow: 2px 2px 3px #333;
+}
+
+.title-start h1{
+    padding: 2rem;
+}
+
 
 /* ------------- parte sinistra -------------  */
 /* profilo personale */
@@ -116,7 +145,7 @@ input:focus{
 #own-profile i {
     padding: 10px;
     font-size: 1.2rem;
-    color: #a2a1a2;
+    color: var(--primary-color);
 }
 
 #own-profile .icons {
@@ -168,17 +197,17 @@ input:focus{
 #chat-finder .lens{
     width: 80px;
     display: inline-block;
-    border: 1px solid #eaeaea;
+    border: 1px solid var(--secondary-color);
     display: flex;
 }
 
 #chat-finder .lens i{
-    color: #a2a1a2;
+    color: var(--primary-color);
 }
 
 #chat-finder input{
     width: calc(100% - 50px);
-    border: 1px solid #eaeaea;
+    border: 1px solid var(--secondary-color);
     border-left: none;
     padding-left: 10px;
 }
@@ -198,7 +227,6 @@ input:focus{
     justify-content: flex-start;
     position: relative;
     cursor: pointer;
-    border-top: 1px solid #eaeaea;
 }
 
 .user-contact:hover{
@@ -225,13 +253,13 @@ input:focus{
     position: absolute;
     top: 10px;
     right: 10px;
-    color: #a2a1a2;
+    color: var(--primary-color);
     font-size: 12px;
 }
 
 .last-message{
     font-size: 14px;
-    color: #a2a1a2;
+    color: var(--primary-color);
 }
 
 
@@ -251,15 +279,15 @@ input:focus{
 }
 
 #user-profile i{
-    color: #a2a1a2;
+    color: var(--primary-color);
     font-size: 1.2rem;
     padding: 10px;
 }
 
 .light-dark{
     display: inline-block;
-    border-top: 1px solid #a2a1a2;
-    border-bottom: 1px solid #a2a1a2;
+    border-top: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
     margin-right: 10px;
 }
 
@@ -271,18 +299,21 @@ input:focus{
 }
 
 .light-dark .light-mode{
-    border-right: 1px solid #a2a1a2;
+    border-right: 1px solid var(--primary-color);
 }
 
 .dark-mode{
-    border-right: 1px solid #a2a1a2;
+    border-right: 1px solid var(--primary-color);
 }
 
 .light-mode{
-    border-left: 1px solid #a2a1a2;
+    border-left: 1px solid var(--primary-color);
 }
 
-
+.fa-house{
+    margin: 0 10px;
+    cursor: pointer;
+}
 
 /* chat principale */
 .chat{
@@ -312,12 +343,11 @@ input:focus{
     width: 35%;
     height: 100%;
     flex-wrap: wrap;
-    padding: 0 1.6rem 0 1rem;
     position: relative;
     border-radius: 10px;
     overflow-wrap: break-word;
     hyphens: auto;
-    padding: 12px 10px;
+    padding: 10px 10px 1rem;
 }
 
 .sent-message .message{
@@ -329,14 +359,14 @@ input:focus{
     bottom: 1px;
     right: 5px;
     font-size: 11px;
-    color: #a2a1a2;
+    color: var(--primary-color);
 }
 
 .message i{
     position: absolute;
-    top: 7px;
+    top: 2px;
     right: 10px;
-    color: #a2a1a2;
+    color: var(--primary-color);
     cursor: pointer;
     display: none;
 }
@@ -370,24 +400,24 @@ input:focus{
 
 
 /* scrittura del messaggio */
-#type-text{
+#type-mess{
     width: 100%;
     height: 60px;
 }
 
-#type-text .emoticons, #type-text .audio{
+#type-mess .emoticons, #type-mess .audio{
     width: 10%;
     height: 100%;
 }
 
-#type-text input{
+#type-mess input{
     width: 80%;
     height: 75%;
     border: none;
     padding-left: 1rem;
 }
 
-#type-text i{
+#type-mess i{
     font-size: 1.4rem;
     color: #5e6567;
 }
@@ -402,8 +432,12 @@ input:focus{
     position: relative;
 }
 
-#type-text .fa-paper-plane{
+#type-mess .fa-paper-plane{
     position: absolute;
     top: 25%;
     color: white;
 }
+
+
+
+
