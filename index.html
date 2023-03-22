@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Boolzapp</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,10 +67,10 @@
                                 <img :src="contact.avatar" :alt="contact.name">               
                                 <div class="user-name">
                                     <span>{{contact.name}}</span>
-                                    <span class="last-message">{{contact.messages[contact.messages.length - 1].message}}</span>
+                                    <span v-if="contact.messages.length > 0" class="last-message">{{contact.messages[contact.messages.length - 1].message}}</span>
                                 </div>
                             </div>
-                            <div class="time-chat">{{contact.messages[contact.messages.length - 1].date}}</div>
+                            <div v-if="contact.messages.length > 0" class="time-chat">{{contact.messages[contact.messages.length - 1].date}}</div>
                         </li>
                     
                     </ul>
@@ -87,7 +87,7 @@
                             <img :src="contacts[activeChat].avatar" alt="Your Photo">
                             <div class="user-name">
                                 <span>{{contacts[activeChat].name}}</span>
-                                <span class="last-message">Ultimo accesso {{contacts[activeChat].messages[contacts[activeChat].messages.length - 1].date}}</span>
+                                <span v-if="contacts[activeChat].messages.length > 0" class="last-message">Ultimo accesso {{contacts[activeChat].messages[contacts[activeChat].messages.length - 1].date}}</span>
                             </div>
                         </div>
                         <div class="icons">
@@ -108,14 +108,14 @@
 
 
                     <!-- chat principale -->
-                    <div class="chat" :class="(themeMode)? 'bg-light-chat' : 'bg-dark-chat' ">
+                    <div class="chat" :class="(themeMode)? 'bg-light-chat' : 'bg-dark-chat'">
                         <div class="container-chat">
 
                             <div v-for="(mess, index) in contacts[activeChat].messages">
                                 <div :class="(mess.status == 'sent')? 'sent-message' : 'received-message'">
                                     <div class="message d-flex ali-center bg-white" @mouseleave="visiblePanel = false">
                                         <span>{{mess.message}}</span>
-                                        <div class="time-message">{{mess.date}}</div>
+                                        <div v-if="contacts[activeChat].messages.length > 0" class="time-message">{{mess.date}}</div>
                                         <i class="fa-solid fa-angle-down" @click="visiblePanel = !visiblePanel">
                                             <div class="panel bg-white" v-show="visiblePanel">
                                                 <div class="info-message d-flex jus-center ali-center">Info Messaggio</div>
